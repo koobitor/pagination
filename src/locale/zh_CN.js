@@ -3,6 +3,7 @@ export default {
   items_per_page: '条/页',
   jump_to: '跳至',
   page: '页',
+  go: '走',
 
   // Pagination.jsx
   prev_page: '上一页',

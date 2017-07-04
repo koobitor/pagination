@@ -3,6 +3,7 @@ export default {
   items_per_page: '/ page',
   jump_to: 'Goto',
   page: '',
+  go: 'Go',
 
   // Pagination.jsx
   prev_page: 'Previous Page',

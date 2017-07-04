@@ -6,6 +6,7 @@ class Options extends React.Component {
   static propTypes = {
     changeSize: PropTypes.func,
     quickGo: PropTypes.func,
+    goButton: PropTypes.func,
     selectComponentClass: PropTypes.func,
     current: PropTypes.number,
     pageSizeOptions: PropTypes.arrayOf(PropTypes.string),
@@ -64,6 +65,7 @@ class Options extends React.Component {
     const prefixCls = `${props.rootPrefixCls}-options`;
     const changeSize = props.changeSize;
     const quickGo = props.quickGo;
+    const goButton = props.goButton;
     const buildOptionText = props.buildOptionText || this.buildOptionText;
     const Select = props.selectComponentClass;
     let changeSelect = null;
@@ -97,18 +99,34 @@ class Options extends React.Component {
     }
 
     if (quickGo) {
-      goInput = (
-        <div className={`${prefixCls}-quick-jumper`}>
-          {locale.jump_to}
-          <input
-            type="text"
-            value={state.goInputText}
-            onChange={this.handleChange}
-            onKeyUp={this.go}
-          />
-          {locale.page}
-        </div>
-      );
+      if (!goButton) {
+        goInput = (
+          <div className={`${prefixCls}-quick-jumper`}>
+            {locale.jump_to}
+            <input
+              type="text"
+              value={state.goInputText}
+              onChange={this.handleChange}
+              onKeyUp={this.go}
+            />
+            {locale.page}
+          </div>
+        );
+      } else {
+        goInput = (
+          <div className={`${prefixCls}-quick-jumper`}>
+            {locale.jump_to}
+            <input
+              type="text"
+              value={state.goInputText}
+              onChange={this.handleChange}
+              onKeyUp={this.go}
+            />
+            <a>{locale.go}</a>
+            {locale.page}
+          </div>
+        );
+      }
     }
 
     return (

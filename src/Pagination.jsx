@@ -27,6 +27,7 @@ export default class Pagination extends React.Component {
     onShowSizeChange: PropTypes.func,
     selectComponentClass: PropTypes.func,
     showQuickJumper: PropTypes.bool,
+    goButton: PropTypes.bool,
     showTitle: PropTypes.bool,
     pageSizeOptions: PropTypes.arrayOf(PropTypes.string),
     showTotal: PropTypes.func,
@@ -44,6 +45,7 @@ export default class Pagination extends React.Component {
     prefixCls: 'rc-pagination',
     selectComponentClass: null,
     showQuickJumper: false,
+    goButton: false,
     showSizeChanger: false,
     showLessItems: false,
     showTitle: true,
@@ -453,6 +455,7 @@ export default class Pagination extends React.Component {
           pageSize={this.state.pageSize}
           pageSizeOptions={this.props.pageSizeOptions}
           quickGo={this.props.showQuickJumper ? this._handleChange : null}
+          goButton={this.props.goButton ? this._handleChange : null}
         />
       </ul>
     );
